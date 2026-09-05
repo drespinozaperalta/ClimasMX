@@ -1,22 +1,42 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CLIMAS-MX v1.1 | Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</title>
+<title>CLIMAS-MX v1.2 | Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</title>
 <style>
 :root{--p:#6d4778;--p2:#916a91;--bg:#f7f4f8;--card:#fff;--ink:#27222a;--mut:#756d79;--line:#ded5e1;--soft:#f0e8f2;--ok:#e8f3ec;--warn:#fff3d9}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--ink)}header{background:linear-gradient(135deg,#563561,#8e6a91);color:#fff;padding:26px 16px}.wrap{max-width:920px;margin:auto}h1{margin:0;font-size:clamp(27px,5vw,40px)}h2{margin:0 0 8px}.sub{opacity:.9;margin-top:5px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 12px;box-shadow:0 5px 18px #00000008}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}label.top{display:block;font-weight:750;margin:8px 0 5px}input,select{width:100%;font:inherit;padding:11px;border:1px solid #cfc5d2;border-radius:10px;background:#fff}.q{padding:15px 0;border-top:1px solid #eee8ef}.q p{margin:0 0 9px;font-weight:650;line-height:1.35}.anchors{display:flex;justify-content:space-between;color:var(--mut);font-size:12px;gap:12px;margin-bottom:5px}.scale{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}.scale.five{grid-template-columns:repeat(5,1fr)}.scale.four{grid-template-columns:repeat(4,1fr)}.scale label{border:1px solid var(--line);border-radius:9px;padding:8px 2px;text-align:center;margin:0;cursor:pointer}.scale input{width:auto}.note{font-size:12.5px;color:var(--mut);line-height:1.45}.pill{display:inline-block;padding:4px 9px;border-radius:99px;background:var(--soft);color:var(--p);font-weight:800;font-size:12px}.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 12px}button{border:0;border-radius:11px;background:var(--p);color:white;padding:13px 17px;font-weight:800;font-size:15px}.secondary{background:#e9e2eb;color:#403646}.hidden{display:none}.print-only{display:none}.results{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.box{border:1px solid var(--line);border-radius:13px;padding:13px;background:#fcfafc}.big{font-size:27px;font-weight:850}.alert{background:var(--warn);padding:12px;border-radius:12px;margin:10px 0}.good{background:var(--ok);padding:12px;border-radius:12px;margin:10px 0}.bar{height:8px;background:#eee8ef;border-radius:99px;overflow:hidden;margin-top:7px}.fill{height:100%;background:var(--p)}footer{text-align:center;color:var(--mut);font-size:11px;padding:20px 16px 35px}
-@media(max-width:650px){.row,.results{grid-template-columns:1fr}.scale{grid-template-columns:repeat(3,1fr)}}@media print{header,.actions,.questionnaire,.no-print{display:none!important}.print-only{display:block!important}body{background:white}.card{box-shadow:none;border:0;margin:0;padding:8px}.wrap{max-width:none}}
+@media(max-width:650px){.row,.results{grid-template-columns:1fr}.scale{grid-template-columns:repeat(3,1fr)}}@media print{
+  @page{size:auto;margin:12mm}
+  html,body{background:#fff!important;color:#111!important;font-size:10pt}
+  header,.actions,.questionnaire,.patient-form,.no-print{display:none!important}
+  .print-only{display:block!important}
+  .wrap{max-width:none!important}
+  #report{display:block!important;border:0!important;box-shadow:none!important;margin:0!important;padding:0!important}
+  #report>h2,#report>p,#report>h3,#out{display:block!important}
+  .results{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:7px!important}
+  .box{break-inside:avoid;page-break-inside:avoid;padding:9px!important}
+  .big{font-size:20px!important}
+  .bar{display:none!important}
+  .alert,.good{break-inside:avoid;page-break-inside:avoid}
+  #answerSheet{display:block!important;margin-top:10mm}
+  #answerSheet .answer-section{break-before:page;page-break-before:always}
+  #answerSheet .answer-section:first-of-type{break-before:page;page-break-before:always}
+  #answerSheet .q{break-inside:avoid;page-break-inside:avoid;padding:7px 0!important}
+  #answerSheet .q p{margin:0 0 3px!important}
+  #answerSheet h2,#answerSheet h3{break-after:avoid;page-break-after:avoid}
+  footer{display:block!important;break-inside:avoid;page-break-inside:avoid;padding:8mm 0 0!important;font-size:8pt!important}
+}
 </style></head><body><header><div class=wrap><h1>CLIMAS-MX</h1><div class=sub><strong>Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</strong><br><span style="font-size:.92em">Estudio CLIMAS-MX · Cuestionarios de calidad de vida, síntomas menopáusicos y sueño</span></div></div></header><main class=wrap>
-<section class=card><h2>Datos de la paciente</h2><div class=row><div><label class=top>Nombre</label><input id=name placeholder="Nombre completo"></div><div><label class=top>Fecha</label><input id=date type=date></div><div><label class=top>Edad</label><input id=age type=number min=18 max=100></div><div><label class=top>¿Tiene pareja actualmente?</label><select id=partner onchange="togglePartner()"><option value=yes>Sí</option><option value=no>No</option></select></div></div><p class=note>La información se procesa localmente en este dispositivo.</p></section>
+<section class="card patient-form"><h2>Datos de la paciente</h2><div class=row><div><label class=top>Nombre</label><input id=name placeholder="Nombre completo"></div><div><label class=top>Fecha</label><input id=date type=date></div><div><label class=top>Edad</label><input id=age type=number min=18 max=100></div><div><label class=top>¿Tiene pareja actualmente?</label><select id=partner onchange="togglePartner()"><option value=yes>Sí</option><option value=no>No</option></select></div></div><p class=note>La información se procesa localmente en este dispositivo.</p></section>
 
 <section class="card questionnaire"><h2>Cervantes-SFv2 <span class=pill>16 ítems</span></h2><p class=note>Seleccione 0–5 entre los dos extremos indicados. Las preguntas 13–14 se refieren a actividad sexual. Si no tiene pareja, no responda 15–16.</p><div id=cerv></div></section>
 <section class="card questionnaire"><h2>Menopause Rating Scale (MRS) <span class=pill>11 ítems</span></h2><p class=note>Indique cuánto le molesta cada síntoma: 0 = nada, 1 = leve, 2 = moderado, 3 = severo, 4 = muy severo.</p><div id=mrs></div></section>
 <section class="card questionnaire"><h2>Athens Insomnia Scale (AIS-8) <span class=pill>8 ítems</span></h2><p class=note>Para preservar la versión validada que utilice su centro, esta sección usa descriptores funcionales de los 8 componentes y puntuación 0–3.</p><div id=ais></div></section>
 
-<div class=actions><button onclick=calc()>Generar resultados</button><button class=secondary onclick="window.print()">Exportar / compartir PDF</button><button class=secondary onclick=saveTxt()>Descargar resumen</button><button class=secondary onclick=resetAll()>Nueva paciente</button></div>
+<div class=actions><button onclick=calc()>Generar resultados</button><button class=secondary onclick="printReport()">Exportar / compartir PDF</button><button class=secondary onclick=saveTxt()>Descargar resumen</button><button class=secondary onclick=resetAll()>Nueva paciente</button></div>
 <section id=report class="card hidden"><h2>CLIMAS-MX</h2><p><strong>Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</strong></p><h3>Resultados de cuestionarios</h3><div id=out></div><div id="answerSheet" class="print-only"></div>
 <p class=note>Estos cuestionarios son instrumentos de apoyo y seguimiento. Sus resultados deben interpretarse en el contexto de la valoración clínica.</p></section>
 </main><footer>
 <div style="font-size:13px;color:#403646;font-weight:750;margin-bottom:8px">
-CLIMAS-MX Questionnaires v1.1 · Septiembre 2026<br>Autoría del estudio CLIMAS-MX
+CLIMAS-MX Questionnaires v1.2 · Septiembre 2026<br>Autoría del estudio CLIMAS-MX
 </div>
 <div style="font-size:12.5px;color:#403646;margin-bottom:12px">
 Dra. Tatiana Piña Ocampo · Dra. Perla Guadalupe Hernandez Salcedo · Dr. Diego Espinoza Peralta
@@ -59,18 +79,23 @@ function mrsLabel(v){return ["Nada","Leve","Moderado","Severo","Muy severo"][v]|
 function aisLabel(v){return ["0","1","2","3"][v]||""}
 function buildAnswerSheet(cv,mv,av){
   let cervRows=C.map((x,i)=>{
-    if(i>13 && partner.value==="no") return `<div class=q><p>${i+1}. ${x[0]}</p><strong>Respuesta:</strong> No aplica (sin pareja actual)</div>`;
-    return `<div class=q><p>${i+1}. ${x[0]}</p><strong>Respuesta:</strong> ${cv[i]}/5 <span class=note>· ${x[1]} → ${x[2]}</span></div>`;
+    if(i>13 && partner.value==="no")
+      return `<div class=q><p><strong>${i+1}. ${x[0]}</strong></p><div>Respuesta: <strong>No aplica</strong> · Sin pareja actual</div></div>`;
+    return `<div class=q><p><strong>${i+1}. ${x[0]}</strong></p><div>Respuesta: <strong>${cv[i]}/5</strong> <span class=note>· ${x[1]} → ${x[2]}</span></div></div>`;
   }).join("");
-  let mrsRows=M.map((x,i)=>`<div class=q><p>${i+1}. ${x}</p><strong>Respuesta:</strong> ${mv[i]}/4 · ${mrsLabel(mv[i])}</div>`).join("");
-  let aisRows=A.map((x,i)=>`<div class=q><p>${i+1}. ${x}</p><strong>Respuesta:</strong> ${av[i]}/3</div>`).join("");
-  return `<hr><h2>Respuestas completas</h2>
-  <h3>Cervantes-SFv2</h3>${cervRows}
-  <h3>Menopause Rating Scale (MRS)</h3>${mrsRows}
-  <h3>Athens Insomnia Scale (AIS-8)</h3>${aisRows}
-  <p class=note><strong>Registro:</strong> ${esc(date.value)} · CLIMAS-MX Questionnaires v1.1</p>`;
+  let mrsRows=M.map((x,i)=>`<div class=q><p><strong>${i+1}. ${x}</strong></p><div>Respuesta: <strong>${mv[i]}/4</strong> · ${mrsLabel(mv[i])}</div></div>`).join("");
+  let aisRows=A.map((x,i)=>`<div class=q><p><strong>${i+1}. ${x}</strong></p><div>Respuesta: <strong>${av[i]}/3</strong></div></div>`).join("");
+  return `
+  <section class="answer-section">
+    <h2>Cervantes-SFv2 · Respuestas</h2>
+    <p class=note>Registro individual de los 16 reactivos.</p>${cervRows}
+  </section>
+  <section class="answer-section">
+    <h2>MRS · Respuestas</h2>${mrsRows}
+    <h2 style="margin-top:18px">AIS-8 · Respuestas</h2>${aisRows}
+    <p class=note style="margin-top:18px"><strong>Registro:</strong> ${esc(date.value)} · CLIMAS-MX Questionnaires v1.2</p>
+  </section>`;
 }
-
 function calc(){
  let cv=C.map((_,i)=>rv("c"+i)), mv=M.map((_,i)=>rv("m"+i)), av=A.map((_,i)=>rv("a"+i));
  let need=partner.value==="no"?14:16;
@@ -86,7 +111,7 @@ function calc(){
  let flag=mh>25?`<div class=alert><strong>Señal Cervantes-SFv2:</strong> Menopausia-Salud = ${fmt(mh)} (>25). Este umbral se ha asociado con la identificación de SVM moderados-graves que pueden requerir tratamiento farmacológico. Debe confirmarse clínicamente.</div>`:`<div class=good><strong>Menopausia-Salud:</strong> ${fmt(mh)} puntos, no supera el umbral >25 descrito para la señal de SVM moderados-graves.</div>`;
  let domains=[["Vasomotor",vas],["Salud",sal],["Envejecimiento",env],["Menopausia-Salud",mh],["Psíquico",psi],["Sexualidad",sex]];
  if(par!==null)domains.push(["Pareja",par]);
- out.innerHTML=`<p><strong>${esc(name.value||"Paciente")}</strong><br>${esc(date.value)}${age.value?" · "+esc(age.value)+" años":""}</p>
+ out.innerHTML=`<div class="print-only" style="margin-bottom:12px"><strong>Participante:</strong> ${esc(name.value||"Paciente")}<br><strong>Fecha:</strong> ${esc(date.value)}${age.value?" · <strong>Edad:</strong> "+esc(age.value)+" años":""}<br><strong>Pareja actual:</strong> ${partner.value==="yes"?"Sí":"No"}</div><p class="no-print"><strong>${esc(name.value||"Paciente")}</strong><br>${esc(date.value)}${age.value?" · "+esc(age.value)+" años":""}</p>
  <div class=results><div class=box><strong>Cervantes-SFv2</strong><div class=big>${fmt(total)}/100</div><span class=note>Mayor puntuación = mayor impacto en CVRS</span></div>
  <div class=box><strong>MRS</strong><div class=big>${mt}/44</div>${mcat}<br><span class=note>Somático ${som}/16 · Psicológico ${psy}/16 · Urogenital ${uro}/12</span></div>
  <div class=box><strong>AIS-8</strong><div class=big>${at}/24</div>${acat}</div></div>${flag}
@@ -94,6 +119,7 @@ function calc(){
  <p class=note>${partner.value==="no"?"Sin pareja actual: el dominio Pareja se omite y el global se calcula con Menopausia-Salud, Psíquico y Sexualidad.":""}</p>`;
  answerSheet.innerHTML=buildAnswerSheet(cv,mv,av);report.classList.remove("hidden");report.scrollIntoView({behavior:"smooth"});
 }
+function printReport(){calc();if(!report.classList.contains("hidden"))setTimeout(()=>window.print(),120)}
 function saveTxt(){calc();if(report.classList.contains("hidden"))return;
 let txt=out.innerText+"\n\nRESPUESTAS COMPLETAS\n"+answerSheet.innerText+"\n\nResultados de cuestionarios; requieren interpretación clínica.";
 let b=new Blob([txt],{type:"text/plain;charset=utf-8"}),a=document.createElement("a");
