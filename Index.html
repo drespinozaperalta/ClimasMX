@@ -1,0 +1,72 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CLIMAS-MX | Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</title>
+<style>
+:root{--p:#6d4778;--p2:#916a91;--bg:#f7f4f8;--card:#fff;--ink:#27222a;--mut:#756d79;--line:#ded5e1;--soft:#f0e8f2;--ok:#e8f3ec;--warn:#fff3d9}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--ink)}header{background:linear-gradient(135deg,#563561,#8e6a91);color:#fff;padding:26px 16px}.wrap{max-width:920px;margin:auto}h1{margin:0;font-size:clamp(27px,5vw,40px)}h2{margin:0 0 8px}.sub{opacity:.9;margin-top:5px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 12px;box-shadow:0 5px 18px #00000008}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}label.top{display:block;font-weight:750;margin:8px 0 5px}input,select{width:100%;font:inherit;padding:11px;border:1px solid #cfc5d2;border-radius:10px;background:#fff}.q{padding:15px 0;border-top:1px solid #eee8ef}.q p{margin:0 0 9px;font-weight:650;line-height:1.35}.anchors{display:flex;justify-content:space-between;color:var(--mut);font-size:12px;gap:12px;margin-bottom:5px}.scale{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}.scale.five{grid-template-columns:repeat(5,1fr)}.scale.four{grid-template-columns:repeat(4,1fr)}.scale label{border:1px solid var(--line);border-radius:9px;padding:8px 2px;text-align:center;margin:0;cursor:pointer}.scale input{width:auto}.note{font-size:12.5px;color:var(--mut);line-height:1.45}.pill{display:inline-block;padding:4px 9px;border-radius:99px;background:var(--soft);color:var(--p);font-weight:800;font-size:12px}.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 12px}button{border:0;border-radius:11px;background:var(--p);color:white;padding:13px 17px;font-weight:800;font-size:15px}.secondary{background:#e9e2eb;color:#403646}.hidden{display:none}.results{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.box{border:1px solid var(--line);border-radius:13px;padding:13px;background:#fcfafc}.big{font-size:27px;font-weight:850}.alert{background:var(--warn);padding:12px;border-radius:12px;margin:10px 0}.good{background:var(--ok);padding:12px;border-radius:12px;margin:10px 0}.bar{height:8px;background:#eee8ef;border-radius:99px;overflow:hidden;margin-top:7px}.fill{height:100%;background:var(--p)}footer{text-align:center;color:var(--mut);font-size:11px;padding:20px 16px 35px}
+@media(max-width:650px){.row,.results{grid-template-columns:1fr}.scale{grid-template-columns:repeat(3,1fr)}}@media print{header,.actions,.questionnaire,.no-print{display:none!important}body{background:white}.card{box-shadow:none;border:0;margin:0;padding:8px}.wrap{max-width:none}}
+</style></head><body><header><div class=wrap><h1>CLIMAS-MX</h1><div class=sub><strong>Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</strong><br><span style="font-size:.92em">Estudio CLIMAS-MX · Cuestionarios de calidad de vida, síntomas menopáusicos y sueño</span></div></div></header><main class=wrap>
+<section class=card><h2>Datos de la paciente</h2><div class=row><div><label class=top>Nombre</label><input id=name placeholder="Nombre completo"></div><div><label class=top>Fecha</label><input id=date type=date></div><div><label class=top>Edad</label><input id=age type=number min=18 max=100></div><div><label class=top>¿Tiene pareja actualmente?</label><select id=partner onchange="togglePartner()"><option value=yes>Sí</option><option value=no>No</option></select></div></div><p class=note>La información se procesa localmente en este dispositivo.</p></section>
+
+<section class="card questionnaire"><h2>Cervantes-SFv2 <span class=pill>16 ítems</span></h2><p class=note>Seleccione 0–5 entre los dos extremos indicados. Las preguntas 13–14 se refieren a actividad sexual. Si no tiene pareja, no responda 15–16.</p><div id=cerv></div></section>
+<section class="card questionnaire"><h2>Menopause Rating Scale (MRS) <span class=pill>11 ítems</span></h2><p class=note>Indique cuánto le molesta cada síntoma: 0 = nada, 1 = leve, 2 = moderado, 3 = severo, 4 = muy severo.</p><div id=mrs></div></section>
+<section class="card questionnaire"><h2>Athens Insomnia Scale (AIS-8) <span class=pill>8 ítems</span></h2><p class=note>Para preservar la versión validada que utilice su centro, esta sección usa descriptores funcionales de los 8 componentes y puntuación 0–3.</p><div id=ais></div></section>
+
+<div class=actions><button onclick=calc()>Generar resultados</button><button class=secondary onclick="window.print()">Exportar / compartir PDF</button><button class=secondary onclick=saveTxt()>Descargar resumen</button><button class=secondary onclick=resetAll()>Nueva paciente</button></div>
+<section id=report class="card hidden"><h2>CLIMAS-MX</h2><p><strong>Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</strong></p><h3>Resultados de cuestionarios</h3><div id=out></div><p class=note>Estos cuestionarios son instrumentos de apoyo y seguimiento. Sus resultados deben interpretarse en el contexto de la valoración clínica.</p></section>
+</main><footer>Cervantes-SFv2: formato y algoritmo de corrección según MenoGuía AEEM “Sofocos”, 1.ª ed. 2023. Instrumento patentado por AEEM; uso sujeto a autorización/licencia aplicable. MRS y AIS-8: utilizar conforme a sus versiones validadas y condiciones de uso.</footer>
+<script>
+const C=[
+["De pronto noto que empiezo a sudar sin que haya hecho ningún esfuerzo","Nunca","Constantemente"],
+["Noto sofocaciones","Nunca","En todo momento"],
+["Durante el día noto que la cabeza me va doliendo cada vez más","Nunca","Todos los días"],
+["Aunque duermo, no consigo descansar","Nunca me ocurre","Constantemente"],
+["Noto que el corazón me late muy deprisa y sin control","Nada","Mucho"],
+["Noto hormigueos en manos y pies","No, en absoluto","Insoportable"],
+["Me da miedo hacer esfuerzos porque se me escapa la orina","No, en absoluto","Mucho"],
+["Mi salud me causa problemas con la actividad diaria (trabajos domésticos, ir al trabajo, etc.)","En absoluto","Constantemente"],
+["He notado que tengo más sequedad en la piel","No, como siempre","Sí, mucho más"],
+["No puedo más de lo nerviosa que estoy","Nunca","Constantemente"],
+["Todo me aburre, incluso las cosas que antes me divertían","No es cierto","Cierto"],
+["Desde que me levanto me encuentro cansada","Nada","Completamente"],
+["En mi vida el sexo es…","Nada importante","Muy importante"],
+["Estoy satisfecha con la actividad sexual que tengo en este momento (incluso si no tengo)","Nada","Completamente"],
+["Me considero feliz en mi relación de pareja","Nada","Muy importante"],
+["Mi papel como esposa o pareja es…","Nada importante","Muy importante"]];
+const M=["Bochornos, sudoración","Molestias cardiacas (palpitaciones, latidos irregulares)","Problemas del sueño","Molestias musculares y articulares","Ánimo depresivo","Irritabilidad","Ansiedad","Cansancio físico y mental","Problemas sexuales","Problemas urinarios","Sequedad vaginal"];
+const A=["Dificultad para conciliar el sueño","Despertares durante la noche","Despertar final antes de lo deseado","Duración total del sueño","Calidad general del sueño","Bienestar durante el día","Funcionamiento físico y mental durante el día","Somnolencia durante el día"];
+function scale(n,max,cls=""){let s=`<div class="scale ${cls}">`;for(let i=0;i<=max;i++)s+=`<label><input type=radio name="${n}" value=${i}> ${i}</label>`;return s+"</div>"}
+C.forEach((x,i)=>cerv.innerHTML+=`<div class="q ${i>13?'partnerQ':''}"><p>${i+1}. ${x[0]}</p><div class=anchors><span>${x[1]}</span><span>${x[2]}</span></div>${scale("c"+i,5)}</div>`);
+M.forEach((x,i)=>mrs.innerHTML+=`<div class=q><p>${i+1}. ${x}</p>${scale("m"+i,4,"five")}</div>`);
+A.forEach((x,i)=>ais.innerHTML+=`<div class=q><p>${i+1}. ${x}</p>${scale("a"+i,3,"four")}</div>`);
+date.value=new Date().toISOString().slice(0,10);
+function rv(n){let x=document.querySelector(`input[name=${n}]:checked`);return x?+x.value:null}
+function esc(s){return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function togglePartner(){document.querySelectorAll(".partnerQ").forEach(e=>e.style.display=partner.value==="no"?"none":"block")}
+function fmt(x){return x.toFixed(1)}
+function calc(){
+ let cv=C.map((_,i)=>rv("c"+i)), mv=M.map((_,i)=>rv("m"+i)), av=A.map((_,i)=>rv("a"+i));
+ let need=partner.value==="no"?14:16;
+ if(cv.slice(0,need).some(x=>x===null)){alert("Complete los ítems requeridos de Cervantes-SFv2.");return}
+ if(mv.some(x=>x===null)||av.some(x=>x===null)){alert("Complete MRS y AIS-8.");return}
+ let vas=(cv[0]+cv[1])*10, sal=(cv[2]+cv[3]+cv[4])*6.67, env=(cv[5]+cv[6]+cv[7]+cv[8])*5;
+ let mh=(vas+sal+env)/3, psi=(cv[9]+cv[10]+cv[11])*6.67, sex=100-(cv[12]+cv[13])*10;
+ let par=partner.value==="yes"?100-(cv[14]+cv[15])*10:null, total=partner.value==="yes"?(mh+psi+sex+par)/4:(mh+psi+sex)/3;
+ let mt=mv.reduce((a,b)=>a+b,0), som=mv.slice(0,4).reduce((a,b)=>a+b,0), psy=mv.slice(4,8).reduce((a,b)=>a+b,0), uro=mv.slice(8).reduce((a,b)=>a+b,0);
+ let at=av.reduce((a,b)=>a+b,0);
+ let mcat=mt<=4?"mínimos/ausentes":mt<=8?"leves":mt<=16?"moderados":"severos";
+ let acat=at<6?"tamiz negativo (<6)":"tamiz positivo (≥6)";
+ let flag=mh>25?`<div class=alert><strong>Señal Cervantes-SFv2:</strong> Menopausia-Salud = ${fmt(mh)} (>25). Este umbral se ha asociado con la identificación de SVM moderados-graves que pueden requerir tratamiento farmacológico. Debe confirmarse clínicamente.</div>`:`<div class=good><strong>Menopausia-Salud:</strong> ${fmt(mh)} puntos, no supera el umbral >25 descrito para la señal de SVM moderados-graves.</div>`;
+ let domains=[["Vasomotor",vas],["Salud",sal],["Envejecimiento",env],["Menopausia-Salud",mh],["Psíquico",psi],["Sexualidad",sex]];
+ if(par!==null)domains.push(["Pareja",par]);
+ out.innerHTML=`<p><strong>${esc(name.value||"Paciente")}</strong><br>${esc(date.value)}${age.value?" · "+esc(age.value)+" años":""}</p>
+ <div class=results><div class=box><strong>Cervantes-SFv2</strong><div class=big>${fmt(total)}/100</div><span class=note>Mayor puntuación = mayor impacto en CVRS</span></div>
+ <div class=box><strong>MRS</strong><div class=big>${mt}/44</div>${mcat}<br><span class=note>Somático ${som}/16 · Psicológico ${psy}/16 · Urogenital ${uro}/12</span></div>
+ <div class=box><strong>AIS-8</strong><div class=big>${at}/24</div>${acat}</div></div>${flag}
+ <h3>Dominios Cervantes-SFv2</h3><div class=results>${domains.map(d=>`<div class=box><strong>${d[0]}</strong><div class=big>${fmt(d[1])}</div><div class=bar><div class=fill style="width:${Math.max(0,Math.min(100,d[1]))}%"></div></div></div>`).join("")}</div>
+ <p class=note>${partner.value==="no"?"Sin pareja actual: el dominio Pareja se omite y el global se calcula con Menopausia-Salud, Psíquico y Sexualidad.":""}</p>`;
+ report.classList.remove("hidden");report.scrollIntoView({behavior:"smooth"});
+}
+function saveTxt(){calc();if(report.classList.contains("hidden"))return;let b=new Blob([out.innerText+"\n\nResultados de cuestionarios; requieren interpretación clínica."],{type:"text/plain;charset=utf-8"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="CLIMAS-MX_"+(name.value||"paciente").replace(/\W+/g,"_")+".txt";a.click()}
+function resetAll(){if(confirm("¿Borrar las respuestas y comenzar una nueva evaluación?"))location.reload()}
+togglePartner();
+</script></body></html>
