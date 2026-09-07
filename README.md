@@ -2,7 +2,7 @@ CLIMAS-MX
 
 Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas
 
-Versión 1.2 | Septiembre 2026
+Versión 1.3 | Septiembre 2026
 
 CLIMAS-MX es una herramienta digital diseñada para la aplicación y puntuación estandarizada de cuestionarios relacionados con calidad de vida, síntomas menopáusicos e insomnio en mujeres mexicanas.
 
