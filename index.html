@@ -1,5 +1,5 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CLIMAS-MX v1.2 | Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</title>
+<title>CLIMAS-MX v1.3 | Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</title>
 <style>
 :root{--p:#6d4778;--p2:#916a91;--bg:#f7f4f8;--card:#fff;--ink:#27222a;--mut:#756d79;--line:#ded5e1;--soft:#f0e8f2;--ok:#e8f3ec;--warn:#fff3d9}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--ink)}header{background:linear-gradient(135deg,#563561,#8e6a91);color:#fff;padding:26px 16px}.wrap{max-width:920px;margin:auto}h1{margin:0;font-size:clamp(27px,5vw,40px)}h2{margin:0 0 8px}.sub{opacity:.9;margin-top:5px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 12px;box-shadow:0 5px 18px #00000008}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}label.top{display:block;font-weight:750;margin:8px 0 5px}input,select{width:100%;font:inherit;padding:11px;border:1px solid #cfc5d2;border-radius:10px;background:#fff}.q{padding:15px 0;border-top:1px solid #eee8ef}.q p{margin:0 0 9px;font-weight:650;line-height:1.35}.anchors{display:flex;justify-content:space-between;color:var(--mut);font-size:12px;gap:12px;margin-bottom:5px}.scale{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}.scale.five{grid-template-columns:repeat(5,1fr)}.scale.four{grid-template-columns:repeat(4,1fr)}.scale label{border:1px solid var(--line);border-radius:9px;padding:8px 2px;text-align:center;margin:0;cursor:pointer}.scale input{width:auto}.note{font-size:12.5px;color:var(--mut);line-height:1.45}.pill{display:inline-block;padding:4px 9px;border-radius:99px;background:var(--soft);color:var(--p);font-weight:800;font-size:12px}.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 12px}button{border:0;border-radius:11px;background:var(--p);color:white;padding:13px 17px;font-weight:800;font-size:15px}.secondary{background:#e9e2eb;color:#403646}.hidden{display:none}.print-only{display:none}.results{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.box{border:1px solid var(--line);border-radius:13px;padding:13px;background:#fcfafc}.big{font-size:27px;font-weight:850}.alert{background:var(--warn);padding:12px;border-radius:12px;margin:10px 0}.good{background:var(--ok);padding:12px;border-radius:12px;margin:10px 0}.bar{height:8px;background:#eee8ef;border-radius:99px;overflow:hidden;margin-top:7px}.fill{height:100%;background:var(--p)}footer{text-align:center;color:var(--mut);font-size:11px;padding:20px 16px 35px}
@@ -21,11 +21,39 @@
   #answerSheet .answer-section:first-of-type{break-before:page;page-break-before:always}
   #answerSheet .q{break-inside:avoid;page-break-inside:avoid;padding:7px 0!important}
   #answerSheet .q p{margin:0 0 3px!important}
-  #answerSheet h2,#answerSheet h3{break-after:avoid;page-break-after:avoid}
+  #answerSheet h2,#answerSheet h3{break-after:avoid;page-break-after:avoid} #report table td{padding:3px 7px;border-bottom:1px solid #eee;vertical-align:top}
   footer{display:block!important;break-inside:avoid;page-break-inside:avoid;padding:8mm 0 0!important;font-size:8pt!important}
 }
 </style></head><body><header><div class=wrap><h1>CLIMAS-MX</h1><div class=sub><strong>Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</strong><br><span style="font-size:.92em">Estudio CLIMAS-MX · Cuestionarios de calidad de vida, síntomas menopáusicos y sueño</span></div></div></header><main class=wrap>
-<section class="card patient-form"><h2>Datos de la paciente</h2><div class=row><div><label class=top>Nombre</label><input id=name placeholder="Nombre completo"></div><div><label class=top>Fecha</label><input id=date type=date></div><div><label class=top>Edad</label><input id=age type=number min=18 max=100></div><div><label class=top>¿Tiene pareja actualmente?</label><select id=partner onchange="togglePartner()"><option value=yes>Sí</option><option value=no>No</option></select></div></div><p class=note>La información se procesa localmente en este dispositivo.</p></section>
+<section class="card patient-form"><h2>Datos demográficos y de la evaluación</h2>
+<div class=row>
+<div><label class=top>ID de participante</label><input id=studyid placeholder="Ej. CLIMAS-001"></div>
+<div><label class=top>Fecha de evaluación</label><input id=date type=date></div>
+<div><label class=top>Nombre de la participante</label><input id=name placeholder="Nombre completo"></div>
+<div><label class=top>Edad</label><input id=age type=number min=18 max=100></div>
+<div><label class=top>Médico / investigador</label><input id=physician placeholder="Nombre del médico o investigador"></div>
+<div><label class=top>Estado de residencia</label><select id=state><option value="">Seleccione…</option><option>Aguascalientes</option><option>Baja California</option><option>Baja California Sur</option><option>Campeche</option><option>Chiapas</option><option>Chihuahua</option><option>Ciudad de México</option><option>Coahuila</option><option>Colima</option><option>Durango</option><option>Estado de México</option><option>Guanajuato</option><option>Guerrero</option><option>Hidalgo</option><option>Jalisco</option><option>Michoacán</option><option>Morelos</option><option>Nayarit</option><option>Nuevo León</option><option>Oaxaca</option><option>Puebla</option><option>Querétaro</option><option>Quintana Roo</option><option>San Luis Potosí</option><option>Sinaloa</option><option>Sonora</option><option>Tabasco</option><option>Tamaulipas</option><option>Tlaxcala</option><option>Veracruz</option><option>Yucatán</option><option>Zacatecas</option><option>Otro / fuera de México</option></select></div>
+<div><label class=top>Escolaridad</label><select id=education><option value="">Seleccione…</option><option>Primaria</option><option>Secundaria</option><option>Preparatoria / bachillerato</option><option>Licenciatura</option><option>Posgrado</option><option>Otra</option></select></div>
+<div><label class=top>Situación laboral</label><select id=employment><option value="">Seleccione…</option><option>Empleo remunerado</option><option>Trabajo en el hogar</option><option>Jubilada</option><option>Desempleada</option><option>Otra</option></select></div>
+<div><label class=top>¿Tiene pareja actualmente?</label><select id=partner onchange="togglePartner()"><option value=yes>Sí</option><option value=no>No</option></select></div>
+</div>
+<h3 style="margin-top:22px">Historia menstrual y menopáusica</h3>
+<div class=row>
+<div><label class=top>Fecha de última menstruación (mes y año)</label><input id=lmp type=month onchange="updateLMP()"><div id=lmpcalc class=note style="margin-top:5px">Tiempo desde la última menstruación: —</div></div>
+<div><label class=top>Tipo / causa de menopausia</label><select id=menotype><option value="">Seleccione…</option><option>Natural</option><option>Quirúrgica</option><option>Inducida por tratamiento</option><option>No determinada</option><option>Aún no cumple criterios de menopausia</option></select></div>
+<div><label class=top>Histerectomía previa</label><select id=hyst><option value="">Seleccione…</option><option>No</option><option>Sí</option></select></div>
+<div><label class=top>Ooforectomía bilateral</label><select id=ooph><option value="">Seleccione…</option><option>No</option><option>Sí</option></select></div>
+</div>
+<h3 style="margin-top:22px">Variables clínicas opcionales</h3>
+<div class=row>
+<div><label class=top>Peso (kg)</label><input id=weight type=number min=20 max=400 step=0.1 oninput="updateBMI()"></div>
+<div><label class=top>Talla (m)</label><input id=height type=number min=1 max=2.5 step=0.01 oninput="updateBMI()"><div id=bmicalc class=note style="margin-top:5px">IMC: —</div></div>
+<div><label class=top>Tabaquismo</label><select id=smoking><option value="">Seleccione…</option><option>Nunca</option><option>Exfumadora</option><option>Actual</option></select></div>
+<div><label class=top>Actividad física</label><select id=activity><option value="">Seleccione…</option><option>Inactiva</option><option>Insuficientemente activa</option><option>Activa</option></select></div>
+<div><label class=top>Tratamiento actual para síntomas de menopausia</label><select id=therapy><option value="">Seleccione…</option><option>Ninguno</option><option>THM sistémica</option><option>Estrógeno vaginal/local</option><option>Fezolinetant</option><option>ISRS/IRSN</option><option>Gabapentinoide</option><option>Otro</option></select></div>
+<div><label class=top>¿Inició o modificó tratamiento desde la evaluación anterior?</label><select id=txchange><option value="">No aplica / evaluación basal</option><option>No</option><option>Sí</option></select></div>
+</div>
+<p class=note>Los datos se procesan localmente en este dispositivo. El tiempo desde la última menstruación se calcula automáticamente a partir del mes/año registrado.</p></section>
 
 <section class="card questionnaire"><h2>Cervantes-SFv2 <span class=pill>16 ítems</span></h2><p class=note>Seleccione 0–5 entre los dos extremos indicados. Las preguntas 13–14 se refieren a actividad sexual. Si no tiene pareja, no responda 15–16.</p><div id=cerv></div></section>
 <section class="card questionnaire"><h2>Menopause Rating Scale (MRS) <span class=pill>11 ítems</span></h2><p class=note>Indique cuánto le molesta cada síntoma: 0 = nada, 1 = leve, 2 = moderado, 3 = severo, 4 = muy severo.</p><div id=mrs></div></section>
@@ -36,7 +64,7 @@
 <p class=note>Estos cuestionarios son instrumentos de apoyo y seguimiento. Sus resultados deben interpretarse en el contexto de la valoración clínica.</p></section>
 </main><footer>
 <div style="font-size:13px;color:#403646;font-weight:750;margin-bottom:8px">
-CLIMAS-MX Questionnaires v1.2 · Septiembre 2026<br>Autoría del estudio CLIMAS-MX
+CLIMAS-MX Questionnaires v1.3 · Septiembre 2026<br>Autoría del estudio CLIMAS-MX
 </div>
 <div style="font-size:12.5px;color:#403646;margin-bottom:12px">
 Dra. Tatiana Piña Ocampo · Dra. Perla Guadalupe Hernandez Salcedo · Dr. Diego Espinoza Peralta
@@ -69,9 +97,13 @@ function scale(n,max,cls=""){let s=`<div class="scale ${cls}">`;for(let i=0;i<=m
 C.forEach((x,i)=>cerv.innerHTML+=`<div class="q ${i>13?'partnerQ':''}"><p>${i+1}. ${x[0]}</p><div class=anchors><span>${x[1]}</span><span>${x[2]}</span></div>${scale("c"+i,5)}</div>`);
 M.forEach((x,i)=>mrs.innerHTML+=`<div class=q><p>${i+1}. ${x}</p>${scale("m"+i,4,"five")}</div>`);
 A.forEach((x,i)=>ais.innerHTML+=`<div class=q><p>${i+1}. ${x}</p>${scale("a"+i,3,"four")}</div>`);
-date.value=new Date().toISOString().slice(0,10);
+date.value=new Date().toISOString().slice(0,10);date.addEventListener("change",updateLMP);
 function rv(n){let x=document.querySelector(`input[name=${n}]:checked`);return x?+x.value:null}
 function esc(s){return String(s||"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function monthsSinceLMP(){if(!lmp.value)return null;let [y,m]=lmp.value.split("-").map(Number);let d=date.value?new Date(date.value+"T12:00:00"):new Date();let z=(d.getFullYear()-y)*12+(d.getMonth()+1-m);return z>=0?z:null}
+function updateLMP(){let z=monthsSinceLMP();lmpcalc.textContent=z===null?"Tiempo desde la última menstruación: —":`Tiempo desde la última menstruación: ${(z/12).toFixed(1)} años (${z} meses)`}
+function bmiValue(){let w=parseFloat(weight.value),h=parseFloat(height.value);return w>0&&h>0?w/(h*h):null}
+function updateBMI(){let b=bmiValue();bmicalc.textContent=b===null?"IMC: —":`IMC: ${b.toFixed(1)} kg/m²`}
 function togglePartner(){document.querySelectorAll(".partnerQ").forEach(e=>e.style.display=partner.value==="no"?"none":"block")}
 function fmt(x){return x.toFixed(1)}
 
@@ -93,7 +125,7 @@ function buildAnswerSheet(cv,mv,av){
   <section class="answer-section">
     <h2>MRS · Respuestas</h2>${mrsRows}
     <h2 style="margin-top:18px">AIS-8 · Respuestas</h2>${aisRows}
-    <p class=note style="margin-top:18px"><strong>Registro:</strong> ${esc(date.value)} · CLIMAS-MX Questionnaires v1.2</p>
+    <p class=note style="margin-top:18px"><strong>Registro:</strong> ${esc(date.value)} · CLIMAS-MX Questionnaires v1.3</p>
   </section>`;
 }
 function calc(){
@@ -111,7 +143,19 @@ function calc(){
  let flag=mh>25?`<div class=alert><strong>Señal Cervantes-SFv2:</strong> Menopausia-Salud = ${fmt(mh)} (>25). Este umbral se ha asociado con la identificación de SVM moderados-graves que pueden requerir tratamiento farmacológico. Debe confirmarse clínicamente.</div>`:`<div class=good><strong>Menopausia-Salud:</strong> ${fmt(mh)} puntos, no supera el umbral >25 descrito para la señal de SVM moderados-graves.</div>`;
  let domains=[["Vasomotor",vas],["Salud",sal],["Envejecimiento",env],["Menopausia-Salud",mh],["Psíquico",psi],["Sexualidad",sex]];
  if(par!==null)domains.push(["Pareja",par]);
- out.innerHTML=`<div class="print-only" style="margin-bottom:12px"><strong>Participante:</strong> ${esc(name.value||"Paciente")}<br><strong>Fecha:</strong> ${esc(date.value)}${age.value?" · <strong>Edad:</strong> "+esc(age.value)+" años":""}<br><strong>Pareja actual:</strong> ${partner.value==="yes"?"Sí":"No"}</div><p class="no-print"><strong>${esc(name.value||"Paciente")}</strong><br>${esc(date.value)}${age.value?" · "+esc(age.value)+" años":""}</p>
+ out.innerHTML=`<div class="print-only" style="margin-bottom:14px"><h3>Datos demográficos y de la evaluación</h3>
+<table style="width:100%;border-collapse:collapse;font-size:9.5pt">
+<tr><td><strong>ID:</strong> ${esc(studyid.value||"—")}</td><td><strong>Fecha:</strong> ${esc(date.value||"—")}</td></tr>
+<tr><td><strong>Participante:</strong> ${esc(name.value||"—")}</td><td><strong>Edad:</strong> ${esc(age.value||"—")}${age.value?" años":""}</td></tr>
+<tr><td><strong>Médico/investigador:</strong> ${esc(physician.value||"—")}</td><td><strong>Estado:</strong> ${esc(state.value||"—")}</td></tr>
+<tr><td><strong>Escolaridad:</strong> ${esc(education.value||"—")}</td><td><strong>Situación laboral:</strong> ${esc(employment.value||"—")}</td></tr>
+<tr><td><strong>Pareja actual:</strong> ${partner.value==="yes"?"Sí":"No"}</td><td><strong>FUM:</strong> ${esc(lmp.value||"—")}</td></tr>
+<tr><td><strong>Tiempo desde FUM:</strong> ${monthsSinceLMP()===null?"—":(monthsSinceLMP()/12).toFixed(1)+" años"}</td><td><strong>Tipo de menopausia:</strong> ${esc(menotype.value||"—")}</td></tr>
+<tr><td><strong>Histerectomía:</strong> ${esc(hyst.value||"—")}</td><td><strong>Ooforectomía bilateral:</strong> ${esc(ooph.value||"—")}</td></tr>
+<tr><td><strong>Peso:</strong> ${weight.value?esc(weight.value)+" kg":"—"}</td><td><strong>Talla:</strong> ${height.value?esc(height.value)+" m":"—"}</td></tr>
+<tr><td><strong>IMC:</strong> ${bmiValue()===null?"—":bmiValue().toFixed(1)+" kg/m²"}</td><td><strong>Tabaquismo:</strong> ${esc(smoking.value||"—")}</td></tr>
+<tr><td><strong>Actividad física:</strong> ${esc(activity.value||"—")}</td><td><strong>Tratamiento:</strong> ${esc(therapy.value||"—")}</td></tr>
+<tr><td colspan=2><strong>Cambio de tratamiento desde evaluación previa:</strong> ${esc(txchange.value||"—")}</td></tr></table></div><p class="no-print"><strong>${esc(name.value||"Paciente")}</strong><br>${esc(date.value)}${age.value?" · "+esc(age.value)+" años":""}</p>
  <div class=results><div class=box><strong>Cervantes-SFv2</strong><div class=big>${fmt(total)}/100</div><span class=note>Mayor puntuación = mayor impacto en CVRS</span></div>
  <div class=box><strong>MRS</strong><div class=big>${mt}/44</div>${mcat}<br><span class=note>Somático ${som}/16 · Psicológico ${psy}/16 · Urogenital ${uro}/12</span></div>
  <div class=box><strong>AIS-8</strong><div class=big>${at}/24</div>${acat}</div></div>${flag}
