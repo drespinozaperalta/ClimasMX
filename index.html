@@ -1,5 +1,5 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CLIMAS-MX v1.4 | Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</title>
+<title>CLIMAS-MX v1.5 | Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</title>
 <style>
 :root{--p:#6d4778;--p2:#916a91;--bg:#f7f4f8;--card:#fff;--ink:#27222a;--mut:#756d79;--line:#ded5e1;--soft:#f0e8f2;--ok:#e8f3ec;--warn:#fff3d9}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--ink)}header{background:linear-gradient(135deg,#563561,#8e6a91);color:#fff;padding:26px 16px}.wrap{max-width:920px;margin:auto}h1{margin:0;font-size:clamp(27px,5vw,40px)}h2{margin:0 0 8px}.sub{opacity:.9;margin-top:5px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin:16px 12px;box-shadow:0 5px 18px #00000008}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}label.top{display:block;font-weight:750;margin:8px 0 5px}input,select{width:100%;font:inherit;padding:11px;border:1px solid #cfc5d2;border-radius:10px;background:#fff}.q{padding:15px 0;border-top:1px solid #eee8ef}.q p{margin:0 0 9px;font-weight:650;line-height:1.35}.anchors{display:flex;justify-content:space-between;color:var(--mut);font-size:12px;gap:12px;margin-bottom:5px}.scale{display:grid;grid-template-columns:repeat(6,1fr);gap:5px}.scale.five{grid-template-columns:repeat(5,1fr)}.scale.four{grid-template-columns:repeat(4,1fr)}.scale label{border:1px solid var(--line);border-radius:9px;padding:8px 2px;text-align:center;margin:0;cursor:pointer}.scale input{width:auto}.note{font-size:12.5px;color:var(--mut);line-height:1.45}.pill{display:inline-block;padding:4px 9px;border-radius:99px;background:var(--soft);color:var(--p);font-weight:800;font-size:12px}.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 12px}button{border:0;border-radius:11px;background:var(--p);color:white;padding:13px 17px;font-weight:800;font-size:15px}.secondary{background:#e9e2eb;color:#403646}.hidden{display:none}.print-only{display:none}.results{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.box{border:1px solid var(--line);border-radius:13px;padding:13px;background:#fcfafc}.big{font-size:27px;font-weight:850}.alert{background:var(--warn);padding:12px;border-radius:12px;margin:10px 0}.good{background:var(--ok);padding:12px;border-radius:12px;margin:10px 0}.bar{height:8px;background:#eee8ef;border-radius:99px;overflow:hidden;margin-top:7px}.fill{height:100%;background:var(--p)}footer{text-align:center;color:var(--mut);font-size:11px;padding:20px 16px 35px}
@@ -27,7 +27,7 @@
 </style></head><body><header><div class=wrap><h1>CLIMAS-MX</h1><div class=sub><strong>Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas</strong><br><span style="font-size:.92em">Estudio CLIMAS-MX · Cuestionarios de calidad de vida, síntomas menopáusicos y sueño</span></div></div></header><main class=wrap>
 <section class="card patient-form"><h2>Datos demográficos y de la evaluación</h2>
 <div class=row>
-<div><label class=top>ID de participante</label><input id=studyid placeholder="Ej. CLIMAS-001"></div>
+<div><label class=top>ID de participante <span style="color:#a12626">*</span></label><input id=studyid required autocomplete="off" placeholder="Obligatorio · Ej. CLIMAS-001"><div class=note style="margin-top:5px">Obligatorio para enviar resultados por correo.</div></div>
 <div><label class=top>Fecha de evaluación</label><input id=date type=date></div>
 <div><label class=top>Nombre de la participante</label><input id=name placeholder="Nombre completo"></div>
 <div><label class=top>Edad</label><input id=age type=number min=18 max=100></div>
@@ -64,7 +64,7 @@
 <p class=note>Estos cuestionarios son instrumentos de apoyo y seguimiento. Sus resultados deben interpretarse en el contexto de la valoración clínica.</p></section>
 </main><footer>
 <div style="font-size:13px;color:#403646;font-weight:750;margin-bottom:8px">
-CLIMAS-MX Questionnaires v1.4 · Septiembre 2026<br>Autoría del estudio CLIMAS-MX
+CLIMAS-MX Questionnaires v1.5 · Septiembre 2026<br>Autoría del estudio CLIMAS-MX
 </div>
 <div style="font-size:12.5px;color:#403646;margin-bottom:12px">
 Dra. Tatiana Piña Ocampo · Dra. Perla Guadalupe Hernandez Salcedo · Dr. Diego Espinoza Peralta
@@ -125,7 +125,7 @@ function buildAnswerSheet(cv,mv,av){
   <section class="answer-section">
     <h2>MRS · Respuestas</h2>${mrsRows}
     <h2 style="margin-top:18px">AIS-8 · Respuestas</h2>${aisRows}
-    <p class=note style="margin-top:18px"><strong>Registro:</strong> ${esc(date.value)} · CLIMAS-MX Questionnaires v1.4</p>
+    <p class=note style="margin-top:18px"><strong>Registro:</strong> ${esc(date.value)} · CLIMAS-MX Questionnaires v1.5</p>
   </section>`;
 }
 function calc(){
@@ -164,24 +164,56 @@ function calc(){
  answerSheet.innerHTML=buildAnswerSheet(cv,mv,av);report.classList.remove("hidden");report.scrollIntoView({behavior:"smooth"});
 }
 function emailResults(){
- calc(); if(report.classList.contains("hidden"))return;
+ const el=id=>document.getElementById(id);
+ const sid=el("studyid").value.trim();
+ if(!sid){
+   alert("Ingrese el ID de participante antes de enviar los resultados por correo.");
+   el("studyid").focus();
+   return;
+ }
+ calc(); if(el("report").classList.contains("hidden"))return;
  if(!confirm("El correo puede contener información personal y de salud. Confirme que desea compartir los resultados."))return;
+
  let cv=C.map((_,i)=>rv("c"+i)),mv=M.map((_,i)=>rv("m"+i)),av=A.map((_,i)=>rv("a"+i));
- let cr=C.map((x,i)=>(i>13&&partner.value==="no")?`${i+1}. ${x[0]}: No aplica`:`${i+1}. ${x[0]}: ${cv[i]}/5`).join("\n");
+ let cr=C.map((x,i)=>(i>13&&el("partner").value==="no")?`${i+1}. ${x[0]}: No aplica`:`${i+1}. ${x[0]}: ${cv[i]}/5`).join("\n");
  let mr=M.map((x,i)=>`${i+1}. ${x}: ${mv[i]}/4 (${mrsLabel(mv[i])})`).join("\n");
  let ar=A.map((x,i)=>`${i+1}. ${x}: ${av[i]}/3`).join("\n");
+
+ const lmpMonths=monthsSinceLMP();
+ const b=bmiValue();
  let body=`CLIMAS-MX
 Calidad de Vida, Insomnio y Manifestaciones Asociadas al Climaterio en Mujeres Mexicanas
 
-ID: ${studyid.value||"—"}
-Participante: ${name.value||"—"}
-Fecha: ${date.value||"—"}
-Edad: ${age.value||"—"}
-Médico/investigador: ${physician.value||"—"}
-Estado: ${state.value||"—"}
+DATOS DEMOGRÁFICOS Y DE LA EVALUACIÓN
+ID: ${sid}
+Participante: ${el("name").value.trim()||"—"}
+Fecha: ${el("date").value||"—"}
+Edad: ${el("age").value||"—"}
+Médico/investigador: ${el("physician").value.trim()||"—"}
+Estado: ${el("state").value||"—"}
+Escolaridad: ${el("education").value||"—"}
+Situación laboral: ${el("employment").value||"—"}
+Pareja actual: ${el("partner").value==="yes"?"Sí":"No"}
+
+HISTORIA MENSTRUAL Y MENOPÁUSICA
+FUM: ${el("lmp").value||"—"}
+Tiempo desde FUM (años): ${lmpMonths===null?"—":(lmpMonths/12).toFixed(1)}
+Tiempo desde FUM (meses): ${lmpMonths===null?"—":lmpMonths}
+Tipo/causa de menopausia: ${el("menotype").value||"—"}
+Histerectomía previa: ${el("hyst").value||"—"}
+Ooforectomía bilateral: ${el("ooph").value||"—"}
+
+VARIABLES CLÍNICAS
+Peso (kg): ${el("weight").value||"—"}
+Talla (m): ${el("height").value||"—"}
+IMC (kg/m²): ${b===null?"—":b.toFixed(1)}
+Tabaquismo: ${el("smoking").value||"—"}
+Actividad física: ${el("activity").value||"—"}
+Tratamiento actual: ${el("therapy").value||"—"}
+Cambio de tratamiento desde evaluación previa: ${el("txchange").value||"No aplica / evaluación basal"}
 
 RESULTADOS
-${out.innerText}
+${el("out").innerText}
 
 RESPUESTAS CERVANTES-SFv2
 ${cr}
@@ -192,8 +224,9 @@ ${mr}
 RESPUESTAS AIS-8
 ${ar}
 
-CLIMAS-MX Questionnaires v1.4`;
- let subject=`CLIMAS-MX | Resultados ${studyid.value||name.value||""}`;
+CLIMAS-MX Questionnaires v1.5`;
+
+ let subject=`CLIMAS-MX | Resultados | ID ${sid}`;
  location.href=`mailto:estudio.climasmx@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
@@ -201,7 +234,7 @@ function printReport(){calc();if(!report.classList.contains("hidden"))setTimeout
 function saveTxt(){calc();if(report.classList.contains("hidden"))return;
 let txt=out.innerText+"\n\nRESPUESTAS COMPLETAS\n"+answerSheet.innerText+"\n\nResultados de cuestionarios; requieren interpretación clínica.";
 let b=new Blob([txt],{type:"text/plain;charset=utf-8"}),a=document.createElement("a");
-a.href=URL.createObjectURL(b);a.download="CLIMAS-MX_v1.1_"+(name.value||"paciente").replace(/\W+/g,"_")+".txt";a.click()}
+a.href=URL.createObjectURL(b);a.download="CLIMAS-MX_v1.5_"+(name.value||"paciente").replace(/\W+/g,"_")+".txt";a.click()}
 function resetAll(){if(confirm("¿Borrar las respuestas y comenzar una nueva evaluación?"))location.reload()}
 togglePartner();
 </script></body></html>
